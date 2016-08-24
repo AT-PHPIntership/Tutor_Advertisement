@@ -16,7 +16,7 @@ class CreatePhotosTable extends Migration
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->foreign('post_id')
-                  ->references('id')->on('photos');
+                  ->references('id')->on('posts');
             $table->string('path');
             $table->timestamps();
             $table->softDeletes();
