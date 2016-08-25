@@ -14,7 +14,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'type', 'title', 'content', 'status', 'reviewer_id', 'category_id', 'city_id', 'closed',
+        'user_id', 'type', 'title', 'content', 'status', 'reviewer_id', 'category_id', 'city_id', 'lat', 'lng', 'closed',
     ];
 
     /**
@@ -24,7 +24,7 @@ class Post extends Model
      */
     public function user()
     {
-        return $this->belongsTo(App\Models\User::class);
+        return $this->belongsTo('App\Models\User');
     }
 
     /**
@@ -34,7 +34,7 @@ class Post extends Model
      */
     public function reviewer()
     {
-        return $this->belongsTo(App\Models\User::class, 'reviewer_id');
+        return $this->belongsTo('App\Models\User', 'reviewer_id');
     }
 
     /**
@@ -44,7 +44,7 @@ class Post extends Model
      */
     public function category()
     {
-        return $this->belongsTo(App\Models\Category::class);
+        return $this->belongsTo('App\Models\Category');
     }
 
     /**
@@ -54,7 +54,7 @@ class Post extends Model
      */
     public function city()
     {
-        return $this->belongsTo(App\Models\City::class);
+        return $this->belongsTo('App\Models\City');
     }
 
     /**
@@ -64,7 +64,7 @@ class Post extends Model
      */
     public function comments()
     {
-        return $this->hasMany(App\Models\Comments::class);
+        return $this->hasMany('App\Models\Comments');
     }
 
     /**
@@ -74,7 +74,7 @@ class Post extends Model
      */
     public function reports()
     {
-        return $this->hasMany(App\Models\Report::class);
+        return $this->hasMany('App\Models\Report');
     }
 
     /**
@@ -84,7 +84,7 @@ class Post extends Model
      */
     public function reservations()
     {
-        return $this->hasMany(App\Models\Reservation::class);
+        return $this->hasMany('App\Models\Reservation');
     }
 
     /**
@@ -94,16 +94,6 @@ class Post extends Model
      */
     public function subjects()
     {
-        return $this->belongsToMany(App\Models\Subject::class);
-    }
-
-    /**
-     * Post has one location.
-     *
-     * @return Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function location()
-    {
-        return $this->hasOne(App\Models\Location::class);
+        return $this->belongsToMany('App\Models\Subject');
     }
 }

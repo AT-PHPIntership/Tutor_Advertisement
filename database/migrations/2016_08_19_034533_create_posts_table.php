@@ -30,7 +30,9 @@ class CreatePostsTable extends Migration
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')
                   ->references('id')->on('cities');
-            $table->boolean('closed');
+            $table->float('lat')->default(0);
+            $table->float('lng')->default(0);
+            $table->boolean('closed')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

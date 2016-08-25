@@ -18,7 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->foreign('user_id')
                   ->references('id')->on('users');
             $table->string('message');
-            $table->boolean('unread');
+            $table->boolean('unread')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,11 +17,11 @@ class CreateProfilesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                   ->references('id')->on('users');
-            $table->string('avatar');
+            $table->string('avatar')->default('default.png');
             $table->boolean('gender')->default(0);
-            $table->string('url');
-            $table->text('bio');
-            $table->string('phone_number', 15);
+            $table->string('url')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('phone_number', 15)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

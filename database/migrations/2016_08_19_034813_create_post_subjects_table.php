@@ -12,7 +12,7 @@ class CreatePostSubjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_subjects', function (Blueprint $table) {
+        Schema::create('post_subject', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('subject_id')->unsigned();
             $table->foreign('subject_id')
@@ -31,6 +31,6 @@ class CreatePostSubjectsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('post_subjects');
+        Schema::drop('post_subject');
     }
 }

@@ -24,6 +24,6 @@ class Subject extends Model
      */
     public function posts()
     {
-        return $this->belongsToMany(App\Models\Post::class);
+        return $this->belongsToMany('App\Models\Post');
     }
 }

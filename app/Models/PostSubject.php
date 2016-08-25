@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostSubject extends Model
 {
-    protected $table = 'post_subjects';
+    protected $table = 'post_subject';
 
     /**
      * The attributes that are mass assignable.

@@ -24,7 +24,7 @@ class CreateReportsTable extends Migration
             $table->foreign('report_type_id')
                   ->references('id')->on('report_types');
             $table->string('description');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

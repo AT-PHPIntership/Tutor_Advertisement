@@ -24,7 +24,7 @@ class Report extends Model
      */
     public function user()
     {
-        return $this->belongsTo(App\Models\User::class);
+        return $this->belongsTo('App\Models\User');
     }
 
     /**
@@ -34,7 +34,7 @@ class Report extends Model
      */
     public function post()
     {
-        return $this->belongsTo(App\Models\Post::class);
+        return $this->belongsTo('App\Models\Post');
     }
 
     /**
@@ -44,6 +44,6 @@ class Report extends Model
      */
     public function reportType()
     {
-        return $this->belongsTo(App\Models\ReportType::class);
+        return $this->belongsTo('App\Models\ReportType');
     }
 }

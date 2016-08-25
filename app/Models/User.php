@@ -14,7 +14,16 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'role_id', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'activated', 'remember_token',
     ];
 
     /**
@@ -24,7 +33,7 @@ class User extends Model
      */
     public function profile()
     {
-        return $this->hasOne(App\Models\Profile::class);
+        return $this->hasOne('App\Models\Profile');
     }
 
     /**
@@ -34,7 +43,7 @@ class User extends Model
      */
     public function notifications()
     {
-        return $this->hasMany(App\Models\Notification::class);
+        return $this->hasMany('App\Models\Notification');
     }
 
     /**
@@ -44,7 +53,7 @@ class User extends Model
      */
     public function reservations()
     {
-        return $this->hasMany(App\Models\Reservation::class);
+        return $this->hasMany('App\Models\Reservation');
     }
 
     /**
@@ -54,7 +63,7 @@ class User extends Model
      */
     public function role()
     {
-        return $this->hasOne(App\Models\Role::class);
+        return $this->hasOne('App\Models\Role');
     }
 
     /**
@@ -64,6 +73,6 @@ class User extends Model
      */
     public function posts()
     {
-        return $this->hasMany(App\Models\Post::class);
+        return $this->hasMany('App\Models\Post');
     }
 }

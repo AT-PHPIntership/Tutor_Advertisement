@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
                   ->references('id')->on('roles');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('activated')->unsigned();
+            $table->integer('activated')->unsigned()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
